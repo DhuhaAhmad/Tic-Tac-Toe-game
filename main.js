@@ -4,10 +4,10 @@ const playerTwo = [];
 let alternate = true;
 let gameOver = false;
 const Sequence = [
-  [0, 1, 2], //x=0,y=0
-  [3, 4, 5], //x=0,y=1
-  [6, 7, 8], //x=0,y=2
-  [0, 3, 6], //x=1,y=0
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
   [1, 4, 7],
   [2, 5, 8],
   [0, 4, 8],
@@ -18,7 +18,6 @@ const Sequence = [
 const board = document.querySelector("#board");
 //get restart button
 const restart = document.querySelector("#restart");
-
 //Seclect spicific squer by its id
 board.addEventListener("click", function () {
   //to stop the game if one win or tie
@@ -64,7 +63,6 @@ board.addEventListener("click", function () {
 }
 
 }); // end board event listner
-
 //check if the squer is already chosen
 const isOccupied = function (squer_id) {
   if (playerOne.includes(squer_id) || playerTwo.includes(squer_id)) {
@@ -72,6 +70,12 @@ const isOccupied = function (squer_id) {
   }
   return true;
 };
+
+//restert event listner
+restart.addEventListener('click', function(){
+  location.reload()
+
+})
 
 //check who win
 const isSeq = function (player) {
