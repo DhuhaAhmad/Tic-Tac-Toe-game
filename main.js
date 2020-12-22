@@ -3,6 +3,9 @@ const playerOne = [];
 const playerTwo = [];
 let alternate = true;
 let gameOver = false;
+let playerOne_score=0
+let playerTwo_score=0
+let round=0
 const Sequence = [
   [0, 1, 2], //x=0,y=0
   [3, 4, 5], //x=0,y=1
@@ -14,13 +17,14 @@ const Sequence = [
   [2, 4, 6],
 ];
 
-// winSound = new sound('exito.mp3')
+const winSound = document.querySelector('#win-sound');
+const tieSound = document.querySelector('#tie-sound');
+const xoSound = document.querySelector('#xo-sound');
 //get a board
 const board = document.querySelector("#board");
 const all = board.querySelectorAll('div.squer')
 //get restart button
 const restart = document.querySelector("#restart");
-const showWinner = document.querySelector('#show-winner')
 const showTurn = document.querySelector('#show-turn')
 
 //Seclect spicific squer by its id
@@ -32,35 +36,43 @@ board.addEventListener("click", function () {
     //to alternate between x and o
     //x turn
     if (alternate) {
+      // console.log(current.id)
       if (isOccupied(parseInt(current.id))) {
+        console.log('here x')
+        console.log(current.id)
+        xoSound.play()
         img.src='x.png'
-        img.setAttribute('id','image')
+        img.setAttribute('class','image')
         current.appendChild(img)
         showTurn.innerText='O turn'
         playerOne.push(parseInt(current.id));
         if (playerOne.length >= 3) {
           if (isSeq(playerOne)) {
-            showWinner.innerText = 'X WINS!!'
-            showTurn.remove()
+            showTurn.innerText = 'X WINS!!'
+            document.body.setAttribute('id','win-background')
+            winSound.play()
             gameOver = true;
           }
         }
         alternate = false;
       }
     }
-    if (!alternate) {
+    if (alternate === false) {
       //o turn
       if (isOccupied(parseInt(current.id))) {
+        console.log('here o')
+        console.log(current.id)
+        xoSound.play()
         img.src='o.png'
-        img.setAttribute('id','image')
+        img.setAttribute('class','image')
         current.appendChild(img)
         showTurn.innerText='X turn'
-        // current.style.backgroundColor = 'rgb(237, 181, 78)' 
         playerTwo.push(parseInt(current.id));
         if (playerTwo.length >= 3) {
           if (isSeq(playerTwo)) {
-            showWinner.innerText = 'O WINS!!'
-            showTurn.remove()
+            showTurn.innerText = 'O WINS!!'
+           document.body.setAttribute('id','win-background')
+            winSound.play()
             gameOver = true;
             
           }
@@ -73,7 +85,9 @@ board.addEventListener("click", function () {
   //tie
   if(!gameOver && playerOne.length >= 5 && playerTwo.length >= 4 && 
     isSeq(playerOne) === false && isSeq(playerTwo) === false){
-      showWinner.innerText = 'Tie!!'
+      showTurn.innerText = 'Tie!!'
+      document.body.setAttribute('id','tie-background')
+      tieSound.play()
 }
 
 }); // end board event listner

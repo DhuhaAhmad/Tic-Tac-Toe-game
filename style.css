@@ -1,25 +1,37 @@
 body{
     font-family: fantasy;
-    display: block;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    /* width: 1000px; */
 }
 
+#win-background{
+    background-image: url("win.gif")
+}
+
+#tie-background{
+    background-image: url("ezgif2.gif");
+    background-repeat: repeat;
+    background-size: 500px 500px;
+}
 
 #board{
     width: 618.5px;
     height: 585px;
     background-color: rgb(236, 204, 145);
     animation: animate 5s infinite;
+    margin: auto;
     /* border-radius: 10px; */
 }
 @keyframes animate {
     40% {
-        box-shadow: 10px 10px 50px rgb(141, 141, 141);
+        box-shadow: 10px 10px 50px #094696;
 
     }
+
+   
 }
 
 .squer{
@@ -27,7 +39,6 @@ body{
     height: 193px;
     margin: -2px;
     display: inline-block;
-    /* border: 2px groove white; */
     border: 2px outset white;
 }
 
@@ -42,7 +53,6 @@ body{
     text-align: center;
     font-size: medium;
     margin: 20px 0 0 0;
-    /* border: hidden; */
     border: 2px outset ;
 
 }
@@ -56,10 +66,17 @@ body{
     cursor: pointer;
 }
 
-#image{
+.image{
     position: absolute;
     width: 100px;
     height: 100px;
     margin: 10px;
     padding: 40px;
 }
+
+
+
+
+
+
+
