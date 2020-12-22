@@ -1,18 +1,19 @@
 body{
+    font-family: fantasy;
+    display: block;
     display: flex;
-    justify-content: center;  
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
-#board{
 
+#board{
     width: 618.5px;
     height: 585px;
-    /* border: 5px solid lightgray; */
-    /* border-radius: 10px; */
-    background-color: white;
-    /* box-shadow: 10px 10px 50px green; */
+    background-color: rgb(236, 204, 145);
     animation: animate 5s infinite;
+    /* border-radius: 10px; */
 }
 @keyframes animate {
     40% {
@@ -20,40 +21,45 @@ body{
 
     }
 }
-/* .row{
-    width: 625px;
-    height: 200px;
-} */
+
 .squer{
-    width: 203.5px;
-    height: 194.3px;
+    width: 203.3px;
+    height: 193px;
     margin: -2px;
     display: inline-block;
-    border: 2px solid black;
-    font-size: xx-large;
+    /* border: 2px groove white; */
+    border: 2px outset white;
+}
+
+
+.button{
+    width: 150px;
+    height: 70px;
+    border-radius: 20px;
+    background-color: rgb(236, 187, 95);
+    font-family:cursive ;
+    font-weight: bolder;
     text-align: center;
-
-    /* border-radius: 10px; */
-}
-
-
-.reset{
-    background-color: white;
-}
-
-#restart{
-flex-direction: column;
-}
-
-/* x{
-
+    font-size: medium;
+    margin: 20px 0 0 0;
+    /* border: hidden; */
+    border: 2px outset ;
 
 }
 
-o{
-} */
+.button:hover{
 
+    background-color: orange;
+    color: white;
+    transition: all 0.5s;
+    font-size:large ;
+    cursor: pointer;
+}
 
-
-
-
+#image{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    padding: 40px;
+}

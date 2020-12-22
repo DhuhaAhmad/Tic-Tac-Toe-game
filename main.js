@@ -4,22 +4,28 @@ const playerTwo = [];
 let alternate = true;
 let gameOver = false;
 const Sequence = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
+  [0, 1, 2], //x=0,y=0
+  [3, 4, 5], //x=0,y=1
+  [6, 7, 8], //x=0,y=2
+  [0, 3, 6], //x=1,y=0
   [1, 4, 7],
   [2, 5, 8],
   [0, 4, 8],
   [2, 4, 6],
 ];
 
+// winSound = new sound('exito.mp3')
 //get a board
 const board = document.querySelector("#board");
+const all = board.querySelectorAll('div.squer')
 //get restart button
 const restart = document.querySelector("#restart");
+const showWinner = document.querySelector('#show-winner')
+const showTurn = document.querySelector('#show-turn')
+
 //Seclect spicific squer by its id
 board.addEventListener("click", function () {
+  const img = document.createElement('img')
   //to stop the game if one win or tie
   if (!gameOver) {
     current = event.target;
@@ -27,12 +33,15 @@ board.addEventListener("click", function () {
     //x turn
     if (alternate) {
       if (isOccupied(parseInt(current.id))) {
-        current.innerText = "X"; //X
-        current.style.backgroundColor = "coral"; //X
+        img.src='x.png'
+        img.setAttribute('id','image')
+        current.appendChild(img)
+        showTurn.innerText='O turn'
         playerOne.push(parseInt(current.id));
         if (playerOne.length >= 3) {
           if (isSeq(playerOne)) {
-            alert("X WINS!!");
+            showWinner.innerText = 'X WINS!!'
+            showTurn.remove()
             gameOver = true;
           }
         }
@@ -42,13 +51,18 @@ board.addEventListener("click", function () {
     if (!alternate) {
       //o turn
       if (isOccupied(parseInt(current.id))) {
-        current.innerText = "O"; //X
-        current.style.backgroundColor = "rgb(129, 212, 129)"; //X
+        img.src='o.png'
+        img.setAttribute('id','image')
+        current.appendChild(img)
+        showTurn.innerText='X turn'
+        // current.style.backgroundColor = 'rgb(237, 181, 78)' 
         playerTwo.push(parseInt(current.id));
         if (playerTwo.length >= 3) {
           if (isSeq(playerTwo)) {
-            alert("O WINS!!");
+            showWinner.innerText = 'O WINS!!'
+            showTurn.remove()
             gameOver = true;
+            
           }
         }
         alternate = true;
@@ -57,12 +71,13 @@ board.addEventListener("click", function () {
   }
   //if game finshed and all cells not sequenced
   //tie
-  if(!gameOver && playerOne.length >= 4 && playerTwo.length >= 4 && 
+  if(!gameOver && playerOne.length >= 5 && playerTwo.length >= 4 && 
     isSeq(playerOne) === false && isSeq(playerTwo) === false){
-    alert('Tie!!')
+      showWinner.innerText = 'Tie!!'
 }
 
 }); // end board event listner
+
 //check if the squer is already chosen
 const isOccupied = function (squer_id) {
   if (playerOne.includes(squer_id) || playerTwo.includes(squer_id)) {
