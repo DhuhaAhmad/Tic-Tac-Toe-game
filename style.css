@@ -4,26 +4,24 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-image: url("galaxy11.gif");
+    background-image: url("./galaxy11.gif");
 }
 
 #win-background{
     background-color: black;
-    background-image: url("win.gif")
+    background-image: url("./win.gif")
 }
 
 #tie-background{
-    background-image: url("Tie1.gif");
+    background-image: url("./Tie1.gif");
     background-size: 500px 500px;
 }
 
 #board{
     width: 618.5px;
     height: 585px;
-    /* background-color: rgb(236, 204, 145); */
     animation: animate 5s infinite;
     margin: auto;
-    /* border-radius: 10px; */
 }
 @keyframes animate {
 

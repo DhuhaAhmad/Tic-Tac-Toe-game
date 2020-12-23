@@ -34,7 +34,7 @@ board.addEventListener("click", function () {
     if (alternate) {
       if (isOccupied(parseInt(current.id))) {
         xoSound.play()
-        img.src='White X.png'
+        img.src='./White X.png'
         img.setAttribute('class','image')
         current.appendChild(img)
         showTurn.innerText='O turn'
@@ -54,7 +54,7 @@ board.addEventListener("click", function () {
       //o turn
       if (isOccupied(parseInt(current.id))) {
         xoSound.play()
-        img.src='Grey O.png'
+        img.src='./Grey O.png'
         img.setAttribute('class','image')
         current.appendChild(img)
         showTurn.innerText='X turn'
