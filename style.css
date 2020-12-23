@@ -4,8 +4,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-image: url("galaxy7.gif")
-
+    background-image: url("galaxy11.gif");
 }
 
 #win-background{
@@ -61,7 +60,7 @@ body{
 
 .button:hover{
 
-    background-color:rgb(158, 157, 154) ;
+    background-color:rgb(202, 167, 202) ;
     color: white;
     transition: all 0.5s;
     font-size:large ;
