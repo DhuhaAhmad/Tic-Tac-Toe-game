@@ -4,7 +4,6 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* width: 1000px; */
     background-image: url("galaxy7.gif")
 
 }
@@ -18,22 +17,6 @@ body{
     background-image: url("Tie1.gif");
     background-size: 500px 500px;
 }
-
-/* #home-backgroud{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-background-color: rgb(223, 193, 139);
-animation: animateback 5s infinite;
-}
-@keyframes animateback {
-    40% {
-        background-color: rgb(233, 186, 98);
-
-    }
-}
- */
 
 #board{
     width: 618.5px;
@@ -57,7 +40,6 @@ animation: animateback 5s infinite;
     height: 193px;
     margin: -2px;
     display: inline-block;
-    /* border: 2px groove white; */
     border: 2px outset white;
 }
 

@@ -19,7 +19,6 @@ const tieSound = document.querySelector('#tie-sound');
 const xoSound = document.querySelector('#xo-sound');
 //get a board
 const board = document.querySelector("#board");
-// const all = board.querySelectorAll('div.squer')
 //get restart button
 const restart = document.querySelector("#restart");
 const showTurn = document.querySelector('#show-turn')
@@ -33,13 +32,11 @@ board.addEventListener("click", function () {
     //to alternate between x and o
     //x turn
     if (alternate) {
-      // console.log(current.id)
       if (isOccupied(parseInt(current.id))) {
         xoSound.play()
         img.src='White X.png'
         img.setAttribute('class','image')
         current.appendChild(img)
-        console.log(current)
         showTurn.innerText='O turn'
         playerOne.push(parseInt(current.id));
         if (playerOne.length >= 3) {
@@ -80,8 +77,6 @@ board.addEventListener("click", function () {
   if(!gameOver && playerOne.length >= 5 && playerTwo.length >= 4 && 
     isSeq(playerOne) === false && isSeq(playerTwo) === false){
       showTurn.innerText = 'Tie!!'
-      // tie++
-      // round++
       document.body.setAttribute('id','tie-background')
       tieSound.play()
 }
