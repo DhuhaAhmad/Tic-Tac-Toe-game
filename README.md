@@ -6,7 +6,7 @@ Tic Tac Toe it's a game in which two players alternately put X's and O's on a ga
 
 - HTML
 - CSS
-- JAVASCRIPT
+- JAVASCRIPT / DOM
 
 ## technologies used
 
@@ -25,6 +25,8 @@ Tic Tac Toe it's a game in which two players alternately put X's and O's on a ga
 - As a user, I should be able to play the game again without refreshing the page
 
 ## WireFrame
+
+![](web-wireframe.pnj)
 
 ## Determine the winner
 
@@ -52,7 +54,7 @@ const playerTwo = [];
 
 ```
 
-each time one of the players click a cell the index of that cell will be added to the player's array
+Each time one of the players click a cell the index of that cell will be added to the player's array
 
 ```
 playerOne.push(parseInt(current.id));
@@ -63,7 +65,7 @@ playerOne.push(parseInt(current.id));
 playerTwo.push(parseInt(current.id));
 
 ```
-This function will accept an array for the player, iterating through Sequence array and take each array inside then iterating through it, while checking each element  if it's existing in the player array will return true
+This function will accept an array for the player, iterating through *Sequence* array and take each array inside then iterating through it, while checking each element  if it's existing in the player array will return *true*
 
 ```
 const isSeq = function (player) {
