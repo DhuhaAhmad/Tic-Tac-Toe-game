@@ -3,14 +3,11 @@ const playerOne = [];
 const playerTwo = [];
 let alternate = true;
 let gameOver = false;
-let playerOne_score=0
-let playerTwo_score=0
-let round=0
 const Sequence = [
-  [0, 1, 2], //x=0,y=0
-  [3, 4, 5], //x=0,y=1
-  [6, 7, 8], //x=0,y=2
-  [0, 3, 6], //x=1,y=0
+  [0, 1, 2],
+  [3, 4, 5], 
+  [6, 7, 8], 
+  [0, 3, 6], 
   [1, 4, 7],
   [2, 5, 8],
   [0, 4, 8],
@@ -22,7 +19,7 @@ const tieSound = document.querySelector('#tie-sound');
 const xoSound = document.querySelector('#xo-sound');
 //get a board
 const board = document.querySelector("#board");
-const all = board.querySelectorAll('div.squer')
+// const all = board.querySelectorAll('div.squer')
 //get restart button
 const restart = document.querySelector("#restart");
 const showTurn = document.querySelector('#show-turn')
@@ -38,12 +35,11 @@ board.addEventListener("click", function () {
     if (alternate) {
       // console.log(current.id)
       if (isOccupied(parseInt(current.id))) {
-        console.log('here x')
-        console.log(current.id)
         xoSound.play()
-        img.src='x.png'
+        img.src='White X.png'
         img.setAttribute('class','image')
         current.appendChild(img)
+        console.log(current)
         showTurn.innerText='O turn'
         playerOne.push(parseInt(current.id));
         if (playerOne.length >= 3) {
@@ -60,10 +56,8 @@ board.addEventListener("click", function () {
     if (alternate === false) {
       //o turn
       if (isOccupied(parseInt(current.id))) {
-        console.log('here o')
-        console.log(current.id)
         xoSound.play()
-        img.src='o.png'
+        img.src='Grey O.png'
         img.setAttribute('class','image')
         current.appendChild(img)
         showTurn.innerText='X turn'
@@ -86,6 +80,8 @@ board.addEventListener("click", function () {
   if(!gameOver && playerOne.length >= 5 && playerTwo.length >= 4 && 
     isSeq(playerOne) === false && isSeq(playerTwo) === false){
       showTurn.innerText = 'Tie!!'
+      // tie++
+      // round++
       document.body.setAttribute('id','tie-background')
       tieSound.play()
 }
@@ -94,7 +90,7 @@ board.addEventListener("click", function () {
 
 //check if the squer is already chosen
 const isOccupied = function (squer_id) {
-  if (playerOne.includes(squer_id) || playerTwo.includes(squer_id)) {
+  if(playerOne.includes(squer_id) || playerTwo.includes(squer_id) || isNaN(squer_id)) {
     return false;
   }
   return true;
