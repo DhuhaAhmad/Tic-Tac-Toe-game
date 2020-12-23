@@ -5,32 +5,50 @@ body{
     align-items: center;
     flex-direction: column;
     /* width: 1000px; */
+    background-image: url("galaxy7.gif")
+
 }
 
 #win-background{
+    background-color: black;
     background-image: url("win.gif")
 }
 
 #tie-background{
-    background-image: url("ezgif2.gif");
-    background-repeat: repeat;
+    background-image: url("Tie1.gif");
     background-size: 500px 500px;
 }
+
+/* #home-backgroud{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+background-color: rgb(223, 193, 139);
+animation: animateback 5s infinite;
+}
+@keyframes animateback {
+    40% {
+        background-color: rgb(233, 186, 98);
+
+    }
+}
+ */
 
 #board{
     width: 618.5px;
     height: 585px;
-    background-color: rgb(236, 204, 145);
+    /* background-color: rgb(236, 204, 145); */
     animation: animate 5s infinite;
     margin: auto;
     /* border-radius: 10px; */
 }
 @keyframes animate {
+
     40% {
-        box-shadow: 10px 10px 50px #094696;
+        background-color: #1b1641;
 
-    }
-
+    }  
    
 }
 
@@ -39,6 +57,7 @@ body{
     height: 193px;
     margin: -2px;
     display: inline-block;
+    /* border: 2px groove white; */
     border: 2px outset white;
 }
 
@@ -47,19 +66,20 @@ body{
     width: 150px;
     height: 70px;
     border-radius: 20px;
-    background-color: rgb(236, 187, 95);
+    background-color: rgb(219, 215, 207);
     font-family:cursive ;
     font-weight: bolder;
     text-align: center;
     font-size: medium;
     margin: 20px 0 0 0;
+    /* border: hidden; */
     border: 2px outset ;
 
 }
 
 .button:hover{
 
-    background-color: orange;
+    background-color:rgb(158, 157, 154) ;
     color: white;
     transition: all 0.5s;
     font-size:large ;
@@ -72,11 +92,75 @@ body{
     height: 100px;
     margin: 10px;
     padding: 40px;
+    border-radius: 500px;
+    /* border: 2px solid black; */
+}
+
+#show-turn{
+    color: white;
+}
+
+@media screen and (max-device-width: 375px){
+    body{
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+      }
+    
+#board{
+    width: 90%;
+    margin: auto;
+
+}
+
+.squer{
+    width: 32.5%;
+    height: 33%;
+    margin: -2px;
+    display: inline-block;
+    border: 2px outset white;
+}
+
+.image{
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    margin: auto;
+    padding: 40px;
 }
 
 
+}
 
 
+@media screen and (min-device-width: 375px) and (max-device-width: 414px)  {
+    body{
+        width: 100%;
+        height: 100%;
+        margin:  0;
+      }
+    
+#board{
+    width: 95%;
+    margin: auto;
+
+}
+
+.squer{
+    width: 32.5%;
+    height: 33%;
+    margin: -2px;
+    display: inline-block;
+    border: 2px outset white;
+}
+
+.image{
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    margin: auto;
+    padding: 40px;
+}
 
 
-
+}
