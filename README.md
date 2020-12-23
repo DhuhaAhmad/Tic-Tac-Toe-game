@@ -26,7 +26,7 @@ Tic Tac Toe it's a game in which two players alternately put X's and O's on a ga
 
 ## WireFrame
 
-![](web-wireframe.pnj)
+![](web-wireframe.png)
 
 ## Determine the winner
 
