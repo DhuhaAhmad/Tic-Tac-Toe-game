@@ -4,16 +4,18 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-image: url("./galaxy11.gif");
+    background-image: url("./images/galaxy7.gif");
+    /* position:fixeds; */
+    /* background-repeat: repeat; */
 }
 
 #win-background{
     background-color: black;
-    background-image: url("./win.gif")
+    background-image: url("./images/win.gif")
 }
 
 #tie-background{
-    background-image: url("./Tie1.gif");
+    background-image: url("./images/Tie1.gif");
     background-size: 500px 500px;
 }
 
@@ -109,5 +111,37 @@ body{
     padding: 30px;
 }
 
+
+}
+
+/* Galaxy Note 9 */
+
+@media screen and (min-device-width: 375px) and (max-device-width: 414px)  {
+    body{
+        width: 100%;
+        margin: 2px;
+        position: fixed;
+      }
+    
+#board{
+    width: 90%;
+
+}
+
+.squer{
+    width: 32.5%;
+    height: 33%;
+    margin: -2px;
+    display: inline-block;
+    border: 2px outset white;
+}
+
+.image{
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    margin: auto;
+    padding: 40px;
+}
 
 }
