@@ -32,56 +32,46 @@ board.addEventListener("click", function () {
     //to alternate between x and o
     //x turn
     if (alternate) {
-      if (isOccupied(parseInt(current.id))) {
-        xoSound.play()
-        img.src='./images/White X.png'
-        img.setAttribute('class','image')
-        current.appendChild(img)
-        showTurn.innerText='O turn'
-        playerOne.push(parseInt(current.id));
-        if (playerOne.length >= 3) {
-          if (isSeq(playerOne)) {
-            showTurn.innerText = 'X WINS!!'
-            document.body.setAttribute('id','win-background')
-            winSound.play()
-            gameOver = true;
-          }
-        }
-        alternate = false;
-      }
+      play(false,current,playerOne,'./images/White X.png',img,'O turn','X WINS!!')
     }
+
     if (alternate === false) {
-      //o turn
-      if (isOccupied(parseInt(current.id))) {
-        xoSound.play()
-        img.src='./images/Grey O.png'
-        img.setAttribute('class','image')
-        current.appendChild(img)
-        showTurn.innerText='X turn'
-        playerTwo.push(parseInt(current.id));
-        if (playerTwo.length >= 3) {
-          if (isSeq(playerTwo)) {
-            showTurn.innerText = 'O WINS!!'
-           document.body.setAttribute('id','win-background')
-            winSound.play()
-            gameOver = true;
-            
-          }
-        }
-        alternate = true;
-      }
+      console.log('OOOOOOOOOOOOOOOOOOOOO')
+      play(true,current,playerTwo,'./images/Grey O.png',img,'X turn','O WINS!!')
     }
   }
   //if game finshed and all cells not sequenced
   //tie
   if(!gameOver && playerOne.length >= 5 && playerTwo.length >= 4 && 
     isSeq(playerOne) === false && isSeq(playerTwo) === false){
-      showTurn.innerText = 'Tie!!'
+      showTurn.innerText = 'Tie!!' //make it beeter
       document.body.setAttribute('id','tie-background')
       tieSound.play()
 }
 
 }); // end board event listner
+
+const play = function (alternateVal,current,player,imgSrc,img,turn,win){
+    if (isOccupied(parseInt(current.id))) {
+      xoSound.play()
+      img.src=imgSrc
+      console.log(imgSrc)
+      img.setAttribute('class','image')
+      current.appendChild(img)
+      showTurn.innerText=turn
+      player.push(parseInt(current.id));
+      if (player.length >= 3) {
+        if (isSeq(player)) {
+          showTurn.innerText = win //make it better
+          document.body.setAttribute('id','win-background')
+          winSound.play()
+          gameOver = true;
+        }
+      }
+      alternate = alternateVal;
+      // return
+    }
+}
 
 //check if the squer is already chosen
 const isOccupied = function (squer_id) {
